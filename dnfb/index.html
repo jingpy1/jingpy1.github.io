@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DNFBUG吧 - DNF地下城与勇士游戏Bug、漏洞、异常报错及解决方案交流平台。提供最新Bug情报、游戏修复公告、异常处理教程及玩家经验分享。">
+    <meta name="keywords" content="dnfbug吧, DNF Bug, 地下城与勇士漏洞, 游戏异常, DNF修复, 游戏报错">
+    <title>dnfbug吧 - DNF游戏Bug情报与异常修复交流平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --accent-color: #ff6b6b;
+            --bg-dark: #1a1a2e;
+            --bg-card: #16213e;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-color: #2a2a40;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(26, 26, 46, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0.8rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(74, 144, 226, 0.1) 0%, rgba(26, 26, 46, 0) 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            height: calc(100% - 10px);
+            padding: 0 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .status-card {
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .status-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .status-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Main Layout */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-bottom: 4rem;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 24px;
+            background-color: var(--accent-color);
+            border-radius: 3px;
+        }
+
+        /* Thread List */
+        .thread-list {
+            list-style: none;
+        }
+
+        .thread-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .thread-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .thread-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .thread-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .thread-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .thread-tag {
+            background-color: rgba(74, 144, 226, 0.15);
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .thread-tag.hot {
+            background-color: rgba(255, 107, 107, 0.15);
+            color: var(--accent-color);
+        }
+
+        .thread-tag.verified {
+            background-color: rgba(46, 204, 113, 0.15);
+            color: #2ecc71;
+        }
+
+        .thread-snippet {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .help-list {
+            list-style: none;
+        }
+
+        .help-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .help-list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .help-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .help-list a::after {
+            content: '→';
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        /* Common Bugs Grid */
+        .bug-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .bug-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .bug-card:hover {
+            border-color: var(--accent-color);
+        }
+
+        .bug-img-placeholder {
+            width: 100%;
+            height: 160px;
+            background-color: #2a2a40;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 3rem;
+        }
+
+        .bug-content {
+            padding: 1.25rem;
+        }
+
+        .bug-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .bug-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .bug-link {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f0f1a;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p, .footer-col li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #252540;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-wrap: wrap;
+            }
+
+            nav {
+                width: 100%;
+                margin-top: 1rem;
+                order: 3;
+            }
+
+            nav ul {
+                gap: 1rem;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+                justify-content: flex-start;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .status-bar {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>🐛</span> dnfbug吧
+            </a>
+            <button class="mobile-menu-btn" aria-label="菜单">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">最新Bug</a></li>
+                    <li><a href="#">异常修复</a></li>
+                    <li><a href="#">版本更新</a></li>
+                    <li><a href="#">提交Bug</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>DNF游戏Bug与异常修复中心</h1>
+            <p>专注于地下城与勇士（DNF）游戏环境问题。无论是客户端闪退、数据异常还是职业技能Bug，这里都有最新的情报与解决方案。</p>
+            
+            <div class="search-box">
+                <input type="text" placeholder="搜索Bug类型、错误代码或职业名称..." aria-label="搜索">
+                <button>搜索</button>
+            </div>
+
+            <div class="status-bar">
+                <div class="status-card">
+                    <div class="status-value">24</div>
+                    <div class="status-label">今日新增Bug</div>
+                </div>
+                <div class="status-card">
+                    <div class="status-value">1,842</div>
+                    <div class="status-label">累计收录案例</div>
+                </div>
+                <div class="status-card">
+                    <div class="status-value">99.2%</div>
+                    <div class="status-label">常见问题解决率</div>
+                </div>
+                <div class="status-card">
+                    <div class="status-value">12</div>
+                    <div class="status-label">官方修复公告</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="main-content">
+            
+            <!-- Left Column: Latest Discussions -->
+            <div class="content-column">
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">最新讨论与情报</h2>
+                        <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">查看更多 →</a>
+                    </div>
+                    
+                    <ul class="thread-list">
+                        <li class="thread-item">
+                            <div class="thread-header">
+                                <span class="thread-title">【急】赛丽亚房间加载卡死，显示错误代码 50001</span>
+                                <span class="thread-tag hot">热门</span>
+                            </div>
+                            <div class="thread-meta">
+                                <span>作者: BugHunter_007</span>
+                                <span>•</span>
+                                <span>2分钟前</span>
+                                <span>•</span>
+                                <span>回复: 45</span>
+                            </div>
+                            <p class="thread-snippet">更新了最新补丁后，每次进入赛丽亚房间都会直接卡死，黑屏无响应，尝试了修复游戏文件无效，求大神支招...</p>
+                        </li>
+
+                        <li class="thread-item">
+                            <div class="thread-header">
+                                <span class="thread-title">【修复】阿修罗二觉技能动画错位问题已确认</span>
+                                <span class="thread-tag verified">已确认</span>
+                            </div>
+                            <div class="thread-meta">
+                                <span>作者: 官方维护组</span>
+                                <span>•</span>
+                                <span>15分钟前</span>
+                                <span>•</span>
+                                <span>回复: 128</span>
+                            </div>
+                            <p class="thread-snippet">经核实，部分服务器环境下阿修罗二觉技能释放时角色模型与特效存在错位。建议玩家等待服务器维护更新...</p>
+                        </li>
+
+                        <li class="thread-item">
+                            <div class="thread-header">
+                                <span class="thread-title">【讨论】附魔宝珠价格异常波动，是否涉及数据BUG？</span>
+                                <span class="thread-tag">讨论</span>
+                            </div>
+                            <div class="thread-meta">
+                                <span>作者: 毒奶粉</span>
+                                <span>•</span>
+                                <span>1小时前</span>
+                                <span>•</span>
+                                <span>回复: 89</span>
+                            </div>
+                            <p class="thread-snippet">最近拍卖行上某些附魔宝珠的价格跌破了成本价，怀疑是系统计算逻辑的漏洞，有图有真相。</p>
+                        </li>
+
+                        <li class="thread-item">
+                            <div class="thread-header">
+                                <span class="thread-title">【求助】深渊派对票数量显示错误，实际消耗不符</span>
+                                <span class="thread-tag">数据异常</span>
+                            </div>
+                            <div class="thread-meta">
+                                <span>作者: 旭旭宝宝粉丝</span>
+                                <span>•</span>
+                                <span>3小时前</span>
+                                <span>•</span>
+                                <span>回复: 32</span>
+                            </div>
+                            <p class="thread-snippet">明明刷了一次深渊，背包里的票数量没变，但是打完怪结算界面显示消耗了，这算是卡bug吗？</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Common Bugs Grid -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">常见异常与解决方案</h2>
+                        <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">全部分类 →</a>
+                    </div>
+                    <div class="bug-grid">
+                        <div class="bug-card">
+                            <div class="bug-img-placeholder">💥</div>
+                            <div class="bug-content">
+                                <h3 class="bug-title">游戏闪退/崩溃</h3>
+                                <p class="bug-desc">客户端无响应、强制退出、黑屏掉线等崩溃问题分析与修复。</p>
+                                <a href="#" class="bug-link">查看解决方案</a>
+                            </div>
+                        </div>
+                        <div class="bug-card">
+                            <div class="bug-img-placeholder">🚫</div>
+                            <div class="bug-content">
+                                <h3 class="bug-title">登录/验证失败</h3>
+                                <p class="bug-desc">验证码无法识别、登录超时、验证失败等连接问题处理。</p>
+                                <a href="#" class="bug-link">查看解决方案</a>
+                            </div>
+                        </div>
+                        <div class="bug-card">
+                            <div class="bug-img-placeholder">🧩</div>
+                            <div class="bug-content">
+                                <h3 class="bug-title">技能/操作异常</h3>
+                                <p class="bug-desc">技能释放延迟、连招中断、角色卡住等操作层面Bug。</p>
+                                <a href="#" class="bug-link">查看解决方案</a>
+                            </div>
+                        </div>
+                        <div class="bug-card">
+                            <div class="bug-img-placeholder">💰</div>
+                            <div class="bug-content">
+                                <h3 class="bug-title">经济数据异常</h3>
+                                <p class="bug-desc">金币数量错误、商城交易失败、拍卖行价格异常等经济系统问题。</p>
+                                <a href="#" class="bug-link">查看解决方案</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <aside class="sidebar">
+                <!-- Quick Help Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">快速求助指南</h3>
+                    <ul class="help-list">
+                        <li><a href="#">如何提交Bug反馈单？</a></li>
+                        <li><a href="#">常见错误代码对照表</a></li>
+                        <li><a href="#">客户端文件修复方法</a></li>
+                        <li><a href="#">网络延迟优化设置</a></li>
+                        <li><a href="#">显卡兼容性排查</a></li>
+                    </ul>
+                </div>
+
+                <!-- Official Notice Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">官方修复公告</h3>
+                    <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                        <strong style="color: #fff;">V5.0 补丁更新说明</strong>
+                    </div>
+                    <p style="font-size: 0.85rem; margin-bottom: 1rem;">
+                        修复了部分职业在地下城内技能冷却时间显示错误的Bug。
+                    </p>
+                    <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                        <strong style="color: #fff;">服务器维护通知</strong>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--accent-color); margin-bottom: 1rem;">
+                        今晚 24:00 进行例行维护，预计耗时 2 小时。
+                    </p>
+                    <a href="#" style="font-size: 0.85rem; color: var(--primary-color);">查看全部公告</a>
+                </div>
+
+                <!-- Ad Placeholder -->
+                <div class="sidebar-widget" style="background: linear-gradient(45deg, #2a2a40, #1a1a2e); text-align: center; padding: 2rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📢</div>
+                    <h4 style="color: #fff; margin-bottom: 0.5rem;">加入官方QQ群</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">获取第一手Bug情报与修复进度</p>
+                    <button style="background: var(--primary-color); color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">立即加入</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col" style="flex: 2; min-width: 300px;">
+                    <h4>dnfbug吧</h4>
+                    <p>致力于为DNF玩家提供最及时、最准确的Bug情报、异常分析与修复教程。共同维护健康的游戏环境。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">提交Bug</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">联系站长</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关资源</h4>
+                    <ul>
+                        <li><a href="#">DNF 官方网站</a></li>
+                        <li><a href="#">DNF 社区论坛</a></li>
+                        <li><a href="#">游戏下载</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 DNFBUG吧. All Rights Reserved. 本站内容仅供学习交流，非官方网站。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的交互逻辑：移动端菜单切换
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            if (nav.style.display === 'flex') {
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '100%';
+                nav.style.left = '0';
+                nav.style.width = '100%';
+                nav.style.background = '#16213e';
+                nav.style.padding = '1rem';
+                nav.style.borderBottom = '1px solid #2a2a40';
+            }
+        });
+
+        // 搜索框简单的交互反馈
+        document.querySelector('.search-box button').addEventListener('click', function() {
+            const input = document.querySelector('.search-box input');
+            if(input.value.trim() !== "") {
+                // 模拟跳转或搜索
+                alert("正在搜索: " + input.value);
+            }
+        });
+    </script>
+</body>
+</html>
