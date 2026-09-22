@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="mgzs价格查询平台，提供最新的mgzs市场价格行情、购买渠道、配置参数对比及性价比分析，帮助用户做出明智的选购决策。">
+    <meta name="keywords" content="mgzs价格,mgzs多少钱,mgzs报价,mgzs配置,mgzs评测">
+    <title>mgzs价格 - 专业市场行情与购买指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #64748b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 8px 15px;
+            outline: none;
+            width: 200px;
+            font-size: 0.9rem;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .price-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .price-tag {
+            background: white;
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            font-weight: 600;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* Price List */
+        .price-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-image {
+            height: 180px;
+            background-color: #e2e8f0;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(37, 99, 235, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .card-specs {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .spec-item {
+            display: inline-block;
+            margin-right: 10px;
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .price-row {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        .current-price {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #ef4444;
+        }
+
+        .current-price small {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            font-weight: 400;
+        }
+
+        .btn-buy {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .btn-buy:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-top: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .guide-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guide-item h3::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .guide-item p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* FAQ */
+        .faq-container {
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 10px;
+            color: var(--text-sub);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+
+        .footer-brand h2 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 40px;
+        }
+
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                <span>MGZS市场</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">价格行情</a></li>
+                    <li><a href="#">配置对比</a></li>
+                    <li><a href="#">选购指南</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索 mgzs 价格...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>mgzs价格实时查询</h1>
+            <p>汇集全网最新 mgzs 市场报价，涵盖不同配置版本与购买渠道，为您提供透明的价格参考与选购建议。</p>
+            <div class="price-tags">
+                <div class="price-tag">¥ 2,599 起</div>
+                <div class="price-tag">¥ 3,899</div>
+                <div class="price-tag">¥ 4,999</div>
+                <div class="price-tag">¥ 6,200+</div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- Latest Prices Section -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">最新 mgzs 报价</h2>
+                <a href="#" class="view-all">查看全部价格列表 &rarr;</a>
+            </div>
+            
+            <div class="price-list">
+                <!-- Card 1 -->
+                <article class="price-card">
+                    <div class="card-image">
+                        <span class="card-badge">热销</span>
+                        <img src="https://picsum.photos/seed/mgzs1/400/300" alt="mgzs 基础版图片">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">MGZS 标准版</h3>
+                        <div class="card-specs">
+                            <span class="spec-item">8GB+256GB</span>
+                            <span class="spec-item">标准配色</span>
+                        </div>
+                        <div class="price-row">
+                            <div class="current-price">
+                                <small>¥</small>2,599
+                            </div>
+                            <a href="#" class="btn-buy">查看详情</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="price-card">
+                    <div class="card-image">
+                        <span class="card-badge">新品</span>
+                        <img src="https://picsum.photos/seed/mgzs2/400/300" alt="mgzs 高配版图片">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">MGZS 高性能版</h3>
+                        <div class="card-specs">
+                            <span class="spec-item">12GB+512GB</span>
+                            <span class="spec-item">深空灰</span>
+                        </div>
+                        <div class="price-row">
+                            <div class="current-price">
+                                <small>¥</small>3,899
+                            </div>
+                            <a href="#" class="btn-buy">查看详情</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="price-card">
+                    <div class="card-image">
+                        <span class="card-badge">优惠</span>
+                        <img src="https://picsum.photos/seed/mgzs3/400/300" alt="mgzs 顶配版图片">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">MGZS 专业旗舰版</h3>
+                        <div class="card-specs">
+                            <span class="spec-item">16GB+1TB</span>
+                            <span class="spec-item">极光绿</span>
+                        </div>
+                        <div class="price-row">
+                            <div class="current-price">
+                                <small>¥</small>5,299
+                            </div>
+                            <a href="#" class="btn-buy">查看详情</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="price-card">
+                    <div class="card-image">
+                        <span class="card-badge">促销</span>
+                        <img src="https://picsum.photos/seed/mgzs4/400/300" alt="mgzs 学生版图片">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">MGZS 教育特惠版</h3>
+                        <div class="card-specs">
+                            <span class="spec-item">8GB+128GB</span>
+                            <span class="spec-item">限定套装</span>
+                        </div>
+                        <div class="price-row">
+                            <div class="current-price">
+                                <small>¥</small>2,299
+                            </div>
+                            <a href="#" class="btn-buy">查看详情</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="price-card">
+                    <div class="card-image">
+                        <span class="card-badge">二手</span>
+                        <img src="https://picsum.photos/seed/mgzs5/400/300" alt="mgzs 二手成色">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">MGZS 二手流通版</h3>
+                        <div class="card-specs">
+                            <span class="spec-item">9成新</span>
+                            <span class="spec-item">官方验机</span>
+                        </div>
+                        <div class="price-row">
+                            <div class="current-price">
+                                <small>¥</small>1,800
+                            </div>
+                            <a href="#" class="btn-buy">查看详情</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="price-card">
+                    <div class="card-image">
+                        <span class="card-badge">企业包</span>
+                        <img src="https://picsum.photos/seed/mgzs6/400/300" alt="mgzs 企业采购">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">MGZS 企业定制包</h3>
+                        <div class="card-specs">
+                            <span class="spec-item">批量采购</span>
+                            <span class="spec-item">发票齐全</span>
+                        </div>
+                        <div class="price-row">
+                            <div class="current-price">
+                                <small>¥</small>2,400
+                            </div>
+                            <a href="#" class="btn-buy">查看详情</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Buying Guide -->
+        <section class="guide-section">
+            <div class="section-header">
+                <h2 class="section-title">mgzs 选购指南</h2>
+            </div>
+            
+            <div class="guide-grid">
+                <div class="guide-item">
+                    <h3>如何判断价格是否合理</h3>
+                    <p>查看同配置产品在主流电商平台的价格波动，关注促销节点（如618、双11）的折扣力度。注意区分“首发价”和“日常价”，避免被首发溢价误导。</p>
+                </div>
+                <div class="guide-item">
+                    <h3>不同配置的性价比差异</h3>
+                    <p>对于日常轻度使用，8GB+256GB版本通常性价比最高；若涉及大型游戏或多任务处理，建议选择12GB或16GB大内存版本，长期使用体验更佳。</p>
+                </div>
+                <div class="guide-item">
+                    <h3>渠道选择注意事项</h3>
+                    <p>优先选择品牌官方直营店或授权旗舰店。非官方渠道虽然价格可能更低，但需警惕翻新机、山寨机或配件缺失的风险。</p>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <h3 style="margin-top: 40px; margin-bottom: 20px; font-size: 1.2rem;">热门版本配置对比</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>配置版本</th>
+                        <th>存储容量</th>
+                        <th>屏幕规格</th>
+                        <th>当前参考价</th>
+                        <th>适合人群</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>标准版</td>
+                        <td>256GB</td>
+                        <td>1080P / 60Hz</td>
+                        <td>¥2,599</td>
+                        <td>学生、办公</td>
+                    </tr>
+                    <tr>
+                        <td>高配版</td>
+                        <td>512GB</td>
+                        <td>1080P / 120Hz</td>
+                        <td>¥3,899</td>
+                        <td>设计师、剪辑师</td>
+                    </tr>
+                    <tr>
+                        <td>旗舰版</td>
+                        <td>1TB</td>
+                        <td>2K / 144Hz</td>
+                        <td>¥5,299</td>
+                        <td>硬核玩家</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-container">
+            <div class="section-header">
+                <h2 class="section-title">常见问题 (FAQ)</h2>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">mgzs 的官方保修期是多久？</div>
+                <div class="faq-answer">
+                    MGZS 标准保修政策通常为整机一年质保，主要部件（如屏幕、电池、主板）享有更长时间的保修。具体以官方售后政策为准。
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">为什么不同平台的价格差异很大？</div>
+                <div class="faq-answer">
+                    价格差异主要源于进货渠道、促销活动力度、配件赠送情况以及平台运营成本。建议在购买前综合对比，选择性价比最高的正规渠道。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何辨别 mgzs 是否为正品？</div>
+                <div class="faq-answer">
+                    请认准官方防伪码查询、包装盒上的序列号、以及购买凭证。正规渠道购买通常附带完整的发票和保修卡。
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2>MGZS市场</h2>
+                    <p>专注于提供最透明、最准确的 mgzs 价格查询与选购服务。</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <h4>关于我们</h4>
+                        <ul>
+                            <li><a href="#">平台简介</a></li>
+                            <li><a href="#">联系合作</a></li>
+                            <li><a href="#">隐私政策</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>帮助中心</h4>
+                        <ul>
+                            <li><a href="#">价格说明</a></li>
+                            <li><a href="#">使用指南</a></li>
+                            <li><a href="#">意见反馈</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 MGZS价格查询平台. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Interaction
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+  </html>
