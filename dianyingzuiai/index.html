@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="电影最爱剧情网，专注于深度解析电影剧情与观影指南。提供热门剧情介绍、经典影片回顾、电影分类推荐及观影避坑指南，助您发现真正打动人心的好电影。">
+    <meta name="keywords" content="电影最爱剧情,电影剧情解析,经典电影推荐,剧情片,观影指南">
+    <title>电影最爱剧情-深度解析与经典影片推荐</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e50914;
+            --secondary-color: #221f1f;
+            --bg-color: #141414;
+            --card-bg: #1f1f1f;
+            --text-main: #ffffff;
+            --text-muted: #b3b3b3;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        nav a.active, nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: #333;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-bar input {
+            border: none;
+            padding: 8px 12px;
+            background: transparent;
+            color: white;
+            width: 200px;
+            outline: none;
+        }
+
+        .search-bar button {
+            border: none;
+            background: #444;
+            color: white;
+            padding: 0 12px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg-color)), url('https://picsum.photos/seed/cinema/1920/1080') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 60px;
+        }
+
+        .hero-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .hero-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #f40612;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid white;
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Layout Grid */
+        .container {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Main Content */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .more-link {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .movie-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #333;
+        }
+
+        .card-body {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-rating {
+            color: #f5c518;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #ccc;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            height: 54px;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background-color: var(--card-bg);
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .ranking-list li {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .ranking-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text-muted);
+            width: 30px;
+            text-align: center;
+        }
+
+        .rank-num.top-3 {
+            color: var(--primary-color);
+        }
+
+        .rank-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .rank-info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: #333;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Feature Section */
+        .feature-section {
+            background-color: var(--card-bg);
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .feature-grid {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+
+        .feature-item h3 {
+            margin-bottom: 12px;
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            margin-bottom: 16px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-muted);
+            display: none;
+            border-top: 1px solid #333;
+            padding-top: 16px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            font-size: 0.85rem;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+                gap: 10px;
+            }
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .search-bar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">电影最爱剧情</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">最新上映</a></li>
+                    <li><a href="#">经典回顾</a></li>
+                    <li><a href="#">剧情解析</a></li>
+                    <li><a href="#">榜单</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索电影、导演或剧情...">
+                <button type="button">搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-tag">本周重磅</span>
+                <h1>不仅仅是光影，<br>更是情感的共鸣</h1>
+                <p>在电影最爱剧情，我们致力于为您梳理最动人的故事线。无论是烧脑悬疑还是催泪温情，这里都有您最爱的剧情解析与观影指南。</p>
+                <div>
+                    <a href="#" class="btn">开始探索</a>
+                    <a href="#" class="btn btn-outline">查看榜单</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Layout -->
+        <div class="container">
+            <!-- Left Column -->
+            <div class="content-area">
+                
+                <!-- Latest Movies -->
+                <section>
+                    <div class="section-title">
+                        <h2>最新热门剧情片</h2>
+                        <a href="#" class="more-link">查看更多 &gt;</a>
+                    </div>
+                    <div class="movie-grid">
+                        <article class="movie-card">
+                            <img src="https://picsum.photos/seed/movie1/300/450" alt="电影海报" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title">沉默的真相</h3>
+                                <div class="card-meta">
+                                    <span>2023</span>
+                                    <span class="card-rating">9.2</span>
+                                </div>
+                                <p class="card-desc">一名检察官在发现一具陈年尸体后，不惜牺牲一切也要揭开真相。这是一部关于正义与牺牲的深度剧情片。</p>
+                            </div>
+                        </article>
+                        <article class="movie-card">
+                            <img src="https://picsum.photos/seed/movie2/300/450" alt="电影海报" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title">星际穿越</h3>
+                                <div class="card-meta">
+                                    <span>2014</span>
+                                    <span class="card-rating">9.3</span>
+                                </div>
+                                <p class="card-desc">在地球环境恶化之际，一群探险家利用虫洞穿越时空，寻找人类的新家园。爱与时空的宏大叙事。</p>
+                            </div>
+                        </article>
+                        <article class="movie-card">
+                            <img src="https://picsum.photos/seed/movie3/300/450" alt="电影海报" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title">肖申克的救赎</h3>
+                                <div class="card-meta">
+                                    <span>1994</span>
+                                    <span class="card-rating">9.7</span>
+                                </div>
+                                <p class="card-desc">银行家被冤入狱，在漫长的牢狱生涯中，他不仅磨练了心智，更用一把小锤子凿穿了通往自由的希望之路。</p>
+                            </div>
+                        </article>
+                        <article class="movie-card">
+                            <img src="https://picsum.photos/seed/movie4/300/450" alt="电影海报" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title">寄生虫</h3>
+                                <div class="card-meta">
+                                    <span>2019</span>
+                                    <span class="card-rating">8.9</span>
+                                </div>
+                                <p class="card-desc">贫富悬殊的残酷现实，通过一家四口寄生到富豪家庭的故事被展现得淋漓尽致，黑色幽默与惊悚并存。</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Classic Reviews -->
+                <section style="margin-top: 60px;">
+                    <div class="section-title">
+                        <h2>深度剧情解析</h2>
+                        <a href="#" class="more-link">查看更多 &gt;</a>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <article style="background: var(--card-bg); padding: 20px; border-radius: 8px;">
+                            <img src="https://picsum.photos/seed/art1/400/250" alt="解析配图" style="width:100%; border-radius:4px; margin-bottom:15px;">
+                            <h3 style="margin-bottom:10px;">《盗梦空间》的梦层级结构解析</h3>
+                            <p style="color:var(--text-muted); font-size:0.9rem;">诺兰导演如何利用梦境嵌套结构来讲述一个关于潜意识的商业大盗故事？</p>
+                        </article>
+                        <article style="background: var(--card-bg); padding: 20px; border-radius: 8px;">
+                            <img src="https://picsum.photos/seed/art2/400/250" alt="解析配图" style="width:100%; border-radius:4px; margin-bottom:15px;">
+                            <h3 style="margin-bottom:10px;">《霸王别姬》的人物命运纠葛</h3>
+                            <p style="color:var(--text-muted); font-size:0.9rem;">从京剧舞台到动荡年代，程蝶衣与段小楼的兄弟情与爱情是如何被时代碾碎的？</p>
+                        </article>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Column Sidebar -->
+            <aside class="sidebar">
+                <!-- Ranking Widget -->
+                <div class="sidebar-widget">
+                    <div class="section-title" style="font-size:1.2rem; border:none; padding:0; margin-bottom:15px;">
+                        <h3>剧情片TOP10</h3>
+                    </div>
+                    <ul class="ranking-list">
+                        <li>
+                            <span class="rank-num top-3">1</span>
+                            <div class="rank-info">
+                                <h4>霸王别姬</h4>
+                                <span>剧情 / 历史 / 爱情</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num top-3">2</span>
+                            <div class="rank-info">
+                                <h4>肖申克的救赎</h4>
+                                <span>剧情 / 犯罪</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num top-3">3</span>
+                            <div class="rank-info">
+                                <h4>阿甘正传</h4>
+                                <span>剧情 / 爱情</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <div class="rank-info">
+                                <h4>泰坦尼克号</h4>
+                                <span>爱情 / 灾难</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">5</span>
+                            <div class="rank-info">
+                                <h4>千与千寻</h4>
+                                <span>动画 / 奇幻</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tags Widget -->
+                <div class="sidebar-widget">
+                    <div class="section-title" style="font-size:1.2rem; border:none; padding:0; margin-bottom:15px;">
+                        <h3>热门标签</h3>
+                    </div>
+                    <div class="tags-cloud">
+                        <a href="#" class="tag">悬疑推理</a>
+                        <a href="#" class="tag">催泪感人</a>
+                        <a href="#" class="tag">史诗巨制</a>
+                        <a href="#" class="tag">犯罪悬疑</a>
+                        <a href="#" class="tag">文艺片</a>
+                        <a href="#" class="tag">心理惊悚</a>
+                        <a href="#" class="tag">传记电影</a>
+                        <a href="#" class="tag">爱情悲剧</a>
+                    </div>
+                </div>
+
+                <!-- Newsletter Widget -->
+                <div class="sidebar-widget" style="text-align: center;">
+                    <h3 style="margin-bottom:10px;">订阅更新</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:15px;">不错过任何一部好电影的剧情解析。</p>
+                    <input type="email" placeholder="您的邮箱地址" style="width:100%; padding:10px; margin-bottom:10px; border-radius:4px; border:1px solid #444; background:#222; color:white;">
+                    <button class="btn" style="width:100%;">订阅</button>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Features Section -->
+        <section class="feature-section">
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">★</div>
+                    <h3>专业剧情梳理</h3>
+                    <p>不仅提供简单的剧情简介，更深入挖掘电影背后的故事逻辑与情感内核。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h3>精准分类推荐</h3>
+                    <p>根据您的喜好，推荐最匹配的剧情类型，帮助您快速找到想看的电影。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💡</div>
+                    <h3>观影避坑指南</h3>
+                    <p>提前了解电影口碑与评分，避免浪费时间在烂片上，确保观影体验。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="section-title">
+                <h2>常见问题</h2>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">如何判断一部电影是否值得看？</div>
+                <div class="faq-answer">
+                    除了参考评分，建议查看剧情简介是否与您的口味相符。在“电影最爱剧情”，我们通过详细的剧情解析，帮助您预判电影的走向和情感基调。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">这里推荐的电影可以在哪里观看？</div>
+                <div class="faq-answer">
+                    本站专注于剧情内容推荐与解析，不提供具体的流媒体播放链接，旨在引导用户通过正规渠道欣赏优质影视作品。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">为什么有些经典老电影评分很高？</div>
+                <div class="faq-answer">
+                    经典电影往往具有超越时代的艺术价值、深刻的思想内涵以及精湛的表演技艺，这些因素共同构成了它们长盛不衰的魅力。
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom:15px;">电影最爱剧情</div>
+                <p style="color:var(--text-muted); font-size:0.9rem;">专注于电影剧情的深度解读与分享，是影迷寻找好故事的理想去处。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">最新上映</a></li>
+                    <li><a href="#">高分榜单</a></li>
+                    <li><a href="#">剧情分类</a></li>
+                    <li><a href="#">年度总结</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>热门分类</h4>
+                <ul>
+                    <li><a href="#">悬疑推理</a></li>
+                    <li><a href="#">爱情电影</a></li>
+                    <li><a href="#">科幻史诗</a></li>
+                    <li><a href="#">人物传记</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">联系合作</a></li>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">免责声明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 电影最爱剧情. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Search Button Interaction (Mock)
+        const searchBtn = document.querySelector('.search-bar button');
+        const searchInput = document.querySelector('.search-bar input');
+        
+        searchBtn.addEventListener('click', () => {
+            if(searchInput.value.trim()) {
+                alert('正在搜索：' + searchInput.value);
+            } else {
+                alert('请输入关键词');
+            }
+        });
+    </script>
+</body>
+  </html>
