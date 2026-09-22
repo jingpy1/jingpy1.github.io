@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道士技能 - 民俗法术与道教科仪全解析</title>
+    <meta name="description" content="道士技能大全：涵盖道教符箓、咒语、科仪、丹道及养生功法。深入解析道教法术原理、修炼方法与实际应用，为您揭开道教神秘文化的面纱。">
+    <meta name="keywords" content="道士技能,道教法术,符咒,道教科仪,丹道,养生功法">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #5D4037;
+            --secondary-color: #8D6E63;
+            --accent-color: #D7CCC8;
+            --text-color: #333;
+            --bg-color: #F5F5F5;
+            --card-bg: #FFFFFF;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3E2723 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* 主要内容区 */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                padding: 20px;
+            }
+            nav ul.active {
+                display: flex;
+            }
+        }
+
+        /* 通用板块样式 */
+        section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* 技能分类网格 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .skill-icon {
+            height: 150px;
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        .skill-body {
+            padding: 20px;
+        }
+
+        .skill-body h3 {
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .skill-body p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #efebe9;
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+
+        /* 侧边栏 */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .list-item::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* 修炼指南 */
+        .guide-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .guide-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: #FAFAFA;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .guide-num {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        .guide-content h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .guide-content p {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* 常见问题 (FAQ) */
+        .faq-section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 60px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: #555;
+            padding-left: 10px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #3E2723;
+            color: #d7ccc8;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            opacity: 0.7;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>☯</span> 道教文化库
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#core-skills">核心法术</a></li>
+                    <li><a href="#ritual">科仪法事</a></li>
+                    <li><a href="#cultivation">内丹养生</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>道士技能全解析</h1>
+            <p>从符箓咒语到科仪法事，深入探索道教传统法术、养生功法与神秘文化。了解道士如何通过修身养性来掌握天地之道。</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="main-content">
+            <!-- 左侧主要内容 -->
+            <div class="content-area">
+                
+                <!-- 核心技能板块 -->
+                <section id="core-skills">
+                    <h2 class="section-title">道士核心技能</h2>
+                    <div class="skills-grid">
+                        <!-- 卡片 1 -->
+                        <article class="skill-card">
+                            <div class="skill-icon">📜</div>
+                            <div class="skill-body">
+                                <h3>符箓咒语</h3>
+                                <p>符箓是道教沟通神灵、驱邪治病的核心工具，配合咒语使用，旨在通过特殊的文字图形调动天地能量。</p>
+                                <div>
+                                    <span class="tag">驱邪</span>
+                                    <span class="tag">祈福</span>
+                                    <span class="tag">镇宅</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 卡片 2 -->
+                        <article class="skill-card">
+                            <div class="skill-icon">🧘</div>
+                            <div class="skill-body">
+                                <h3>内丹修炼</h3>
+                                <p>通过“炼精化气、炼气化神、炼神还虚”的过程，使人体潜能最大化，达到强身健体与延年益寿的目的。</p>
+                                <div>
+                                    <span class="tag">养生</span>
+                                    <span class="tag">延年</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 卡片 3 -->
+                        <article class="skill-card">
+                            <div class="skill-icon">🧹</div>
+                            <div class="skill-body">
+                                <h3>科仪法事</h3>
+                                <p>包括斋醮科仪，如拜斗、度亡、祈安等。道士通过严谨的仪式流程，表达对天地的敬畏与祈愿。</p>
+                                <div>
+                                    <span class="tag">科仪</span>
+                                    <span class="tag">仪式</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 卡片 4 -->
+                        <article class="skill-card">
+                            <div class="skill-icon">☯</div>
+                            <div class="skill-body">
+                                <h3>风水堪舆</h3>
+                                <p>观察自然环境与建筑布局，分析气场流动，为个人或家庭提供选址、布局及改运建议。</p>
+                                <div>
+                                    <span class="tag">堪舆</span>
+                                    <span class="tag">选址</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 卡片 5 -->
+                        <article class="skill-card">
+                            <div class="skill-icon">🌿</div>
+                            <div class="skill-body">
+                                <h3>灵药丹术</h3>
+                                <p>研究本草药性，制作符水、丹药，用于治病救人及辅助修炼。强调“药食同源”与自然疗法。</p>
+                                <div>
+                                    <span class="tag">医药</span>
+                                    <span class="tag">本草</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- 卡片 6 -->
+                        <article class="skill-card">
+                            <div class="skill-icon">🧠</div>
+                            <div class="skill-body">
+                                <h3>神通感应</h3>
+                                <p>通过长期静坐与冥想，提高专注力与直觉力，能够感知他人情绪、环境变化及微弱的能量波动。</p>
+                                <div>
+                                    <span class="tag">感知</span>
+                                    <span class="tag">直觉</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- 科仪法事板块 -->
+                <section id="ritual" style="margin-top: 40px;">
+                    <h2 class="section-title">常见科仪与法事</h2>
+                    <div class="skills-grid">
+                        <article class="skill-card">
+                            <div class="skill-body">
+                                <h3>拜斗增寿</h3>
+                                <p>向北斗七星祈求福寿安康，是道教祈福科仪中最为常见的一种。</p>
+                            </div>
+                        </article>
+                        <article class="skill-card">
+                            <div class="skill-body">
+                                <h3>度亡超度</h3>
+                                <p>通过法事帮助亡者往生极乐，化解冤亲债业，同时抚慰生者。</p>
+                            </div>
+                        </article>
+                        <article class="skill-card">
+                            <div class="skill-body">
+                                <h3>安镇法会</h3>
+                                <p>针对新居落成、商铺开张，通过安神镇煞，祈求顺风顺水。</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- 修炼指南板块 -->
+                <section id="cultivation" style="margin-top: 40px;">
+                    <h2 class="section-title">入门修炼指南</h2>
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <div class="guide-num">一</div>
+                            <div class="guide-content">
+                                <h4>调身：站桩与打坐</h4>
+                                <p>修炼的基础在于身体的放松与姿势的正确。建议从“站桩”开始，培养桩功，再逐步过渡到静坐。</p>
+                            </div>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-num">二</div>
+                            <div class="guide-content">
+                                <h4>调息：吐纳之法</h4>
+                                <p>学习“龟息”或“六字诀”，通过控制呼吸的深、长、细、匀，来调节体内的气血运行。</p>
+                            </div>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-num">三</div>
+                            <div class="guide-content">
+                                <h4>调心：存思与观想</h4>
+                                <p>在静定状态下，通过观想体内神像或宇宙能量，达到“心无杂念”的境界。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 常见问题 -->
+                <section id="faq" class="faq-section">
+                    <h2 class="section-title">常见问题 (FAQ)</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">道士的“法术”是虚构的吗？</div>
+                        <div class="faq-answer">
+                            道教法术并非虚构，而是道教对宇宙规律和人体潜能的一种实践应用。符咒和科仪更多是一种心理暗示、仪式规范以及对天地秩序的敬畏体现，其核心在于修身养性与积德行善。
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">普通人可以学习道教技能吗？</div>
+                        <div class="faq-answer">
+                            道教文化强调“道法自然”与“性命双修”。普通人可以学习其中的养生功法（如太极拳、八段锦）和传统文化知识，但涉及正式的科仪法事，通常需要经过严格的师承和入道仪式。
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">如何辨别真伪道士？</div>
+                        <div class="faq-answer">
+                            真正的道士通常持有道教协会颁发的教职人员证，并且言行举止温和、低调。对于声称拥有神通、能通过法术瞬间发财治病的人员，应保持警惕，避免上当受骗。
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- 右侧侧边栏 -->
+            <aside>
+                <div class="sidebar-widget">
+                    <h3>修炼分类</h3>
+                    <ul class="list-item">
+                        <li><a href="#">正一派法术</a></li>
+                        <li><a href="#">全真派内丹</a></li>
+                        <li><a href="#">上清派符箓</a></li>
+                        <li><a href="#">灵宝派度亡</a></li>
+                        <li><a href="#">民间法教</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>热门阅读</h3>
+                    <ul class="list-item">
+                        <li><a href="#">道教神仙体系详解</a></li>
+                        <li><a href="#">道袍的穿戴规范</a></li>
+                        <li><a href="#">斋醮科仪入门</a></li>
+                        <li><a href="#">道医养生药膳</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>温馨提示</h3>
+                    <p style="font-size: 0.9rem; color: #666;">
+                        本站内容仅供文化研究与学习参考。道教文化博大精深，请以正统道观及正规典籍为准，切勿沉迷迷信。
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">免责声明</a>
+                <a href="#">联系方式</a>
+                <a href="#">网站地图</a>
+            </div>
+            <p class="copyright">&copy; 2023 道教文化库. All Rights Reserved. 传承中华传统文化，弘扬正道精神。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的移动端菜单切换逻辑
+        function toggleMenu() {
+            var navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
+        }
+
+        // 平滑滚动效果（兼容旧浏览器）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                var targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                var targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // 关闭移动端菜单
+                    document.getElementById('nav-list').classList.remove('active');
+                    
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
