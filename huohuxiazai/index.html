@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="火狐下载 - Mozilla Firefox 官方安全下载与使用指南。提供最新版 Firefox 浏览器下载、安装教程、隐私保护设置及浏览器优化技巧，助您获得更安全、快速的网络体验。">
+    <meta name="keywords" content="火狐下载, Firefox浏览器, Mozilla Firefox, 浏览器下载, 网页浏览工具, 隐私保护浏览器">
+    <title>火狐下载 - Mozilla Firefox 官方安全下载与隐私保护浏览器指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff7139;
+            --primary-hover: #e66a2b;
+            --secondary-color: #f0f0f0;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #ffffff;
+            --bg-alt: #f9f9f9;
+            --border-color: #e1e1e1;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏 */
+        header {
+            background: #fff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-download-nav {
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+        }
+
+        .btn-download-nav:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fff5f0 0%, #ffffff 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .download-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(255, 113, 57, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-main:hover {
+            background-color: var(--primary-hover);
+            box-shadow: 0 6px 20px rgba(255, 113, 57, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--text-main);
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+            background-color: #fafafa;
+        }
+
+        /* 特性网格 */
+        .features {
+            padding: 60px 0;
+            background-color: var(--bg-body);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border-radius: var(--radius);
+            background: var(--bg-alt);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* 下载中心 */
+        .download-center {
+            padding: 80px 0;
+            background-color: var(--bg-alt);
+        }
+
+        .download-table-wrapper {
+            overflow-x: auto;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f8f8f8;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        td {
+            color: var(--text-light);
+        }
+
+        .version-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #e1f5fe;
+            color: #0288d1;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .btn-sm {
+            padding: 6px 16px;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            background-color: var(--secondary-color);
+            color: var(--text-main);
+            transition: background 0.2s;
+        }
+
+        .btn-sm:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn-sm.download {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-sm.download:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* 隐私保护 */
+        .privacy-section {
+            padding: 80px 0;
+        }
+
+        .privacy-layout {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .privacy-content {
+            flex: 1;
+        }
+
+        .privacy-image {
+            flex: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .privacy-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .privacy-content p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .check-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+        }
+
+        .check-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 80px 0;
+            background-color: var(--bg-alt);
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+        }
+
+        .faq-question:hover {
+            background-color: #fafafa;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            display: none;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #1a1a1a;
+            color: #999;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                display: none; /* 简化处理，移动端隐藏导航链接 */
+            }
+
+            .privacy-layout {
+                flex-direction: column;
+            }
+
+            .download-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-main, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="#FF7139"/>
+                    <path d="M12 6C8.69 6 6 8.69 6 12C6 15.31 8.69 18 12 18C15.31 18 18 15.31 18 12C18 8.69 15.31 6 12 6ZM12 16C9.79 16 8 14.21 8 12C8 9.79 9.79 8 12 8C14.21 8 16 9.79 16 12C16 14.21 14.21 16 12 16Z" fill="#FF7139"/>
+                </svg>
+                <span>火狐下载</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#features">功能特色</a>
+                <a href="#download">版本下载</a>
+                <a href="#privacy">隐私保护</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+            <a href="#download" class="btn-download-nav">立即下载</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>选择更安全、更私密的网络体验</h1>
+                <p>Mozilla Firefox 是全球领先的开放源代码浏览器，致力于保护您的隐私，提供快速且可定制的浏览体验。点击下方按钮获取最新版火狐下载。</p>
+                <div class="download-actions">
+                    <a href="#download" class="btn-main">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        下载 Firefox
+                    </a>
+                    <a href="#features" class="btn-secondary">了解 Firefox</a>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #999;">支持 Windows, macOS, Linux, Android, iOS</p>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>为什么选择火狐浏览器？</h2>
+                    <p>不仅仅是浏览网页，更是掌控您的数字生活</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>隐私保护优先</h3>
+                        <p>Firefox 默认开启增强型跟踪保护，阻止第三方跟踪器，减少数据收集，让您的浏览习惯不被窥探。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>速度与性能</h3>
+                        <p>采用先进的内存管理技术，即使打开多个标签页也能保持流畅运行，大幅提升网页加载速度。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>高度可定制</h3>
+                        <p>通过数千个扩展程序和主题，打造完全符合您个人审美和工作习惯的专属浏览器界面。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>开放标准</h3>
+                        <p>支持最新的 Web 标准，确保您在浏览现代网站时获得最佳的兼容性和视觉效果。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Center -->
+        <section id="download" class="download-center">
+            <div class="container">
+                <div class="section-header">
+                    <h2>火狐下载中心</h2>
+                    <p>选择适合您设备系统的版本进行安全安装</p>
+                </div>
+                <div class="download-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>系统平台</th>
+                                <th>版本信息</th>
+                                <th>更新日期</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Windows</strong></td>
+                                <td>
+                                    <span class="version-tag">64位</span>
+                                    132.0.2 (最新稳定版)
+                                </td>
+                                <td>2024年5月</td>
+                                <td><a href="#" class="btn-sm download">立即下载</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>macOS</strong></td>
+                                <td>
+                                    <span class="version-tag">Intel & Apple Silicon</span>
+                                    132.0.2 (最新稳定版)
+                                </td>
+                                <td>2024年5月</td>
+                                <td><a href="#" class="btn-sm download">立即下载</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Linux</strong></td>
+                                <td>Firefox 132.0.2</td>
+                                <td>2024年5月</td>
+                                <td><a href="#" class="btn-sm download">立即下载</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Android</strong></td>
+                                <td>133.0</td>
+                                <td>2024年5月</td>
+                                <td><a href="#" class="btn-sm download">立即下载</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>iOS</strong></td>
+                                <td>133.0</td>
+                                <td>2024年5月</td>
+                                <td><a href="#" class="btn-sm download">立即下载</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 30px; text-align: center; color: var(--text-light); font-size: 0.9rem;">
+                    <p>⚠️ 请从官方渠道下载，确保文件完整性。安装包大小约为 80MB - 120MB。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy Section -->
+        <section id="privacy" class="privacy-section">
+            <div class="container">
+                <div class="privacy-layout">
+                    <div class="privacy-content">
+                        <h2>您的隐私，由您定义</h2>
+                        <p>Mozilla 致力于构建一个健康、开放的互联网。Firefox 不仅仅是一个浏览器，它是您个人数据的守护者。</p>
+                        <ul class="check-list">
+                            <li>自动拦截广告跟踪器</li>
+                            <li>防止网站读取您的剪贴板内容</li>
+                            <li>禁用指纹识别技术</li>
+                            <li>提供详细的隐私报告供您查看</li>
+                        </ul>
+                        <a href="#" class="btn-sm" style="margin-top: 20px; display: inline-block;">查看隐私保护详情</a>
+                    </div>
+                    <div class="privacy-image">
+                        <!-- 使用占位图代替外部图片，确保独立运行 -->
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%23f0f0f0' width='600' height='400'/%3E%3Ccircle cx='300' cy='200' r='100' fill='%23ff7139' opacity='0.2'/%3E%3Cpath d='M300 100 L400 300 L200 300 Z' fill='%23ff7139' opacity='0.8'/%3E%3Ctext x='300' y='250' text-anchor='middle' font-family='Arial' font-size='24' fill='white' font-weight='bold'%3EPrivacy First%3C/text%3E%3C/svg%3E" alt="Firefox Privacy Concept">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                    <p>关于火狐下载与使用的疑问解答</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item active">
+                        <div class="faq-question">如何确认下载的文件是官方正版？</div>
+                        <div class="faq-answer">
+                            请务必从本站或 Mozilla 官方网站下载。官方安装包通常包含数字签名，您可以在安装前检查文件属性以验证签名。如果文件大小异常小或无法验证，请勿安装。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">火狐浏览器支持哪些操作系统？</div>
+                        <div class="faq-answer">
+                            Firefox 支持主流操作系统，包括 Windows 10/11, macOS (Intel 和 Apple M1/M2/M3 芯片), Linux (如 Ubuntu, Fedora 等) 以及 Android 和 iOS 移动端。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">下载后如何安装 Firefox？</div>
+                        <div class="faq-answer">
+                            对于 Windows 和 macOS，下载完成后双击运行 .dmg 或 .exe 安装程序，按照向导提示点击“下一步”即可完成安装。安装程序通常会询问是否将 Firefox 设为默认浏览器。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        本站致力于为用户提供最准确、最安全的软件下载资源与使用指南。我们推崇开源精神，关注用户隐私与网络安全。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">火狐下载首页</a></li>
+                        <li><a href="#">Firefox 增强版</a></li>
+                        <li><a href="#">Firefox ESR 版</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持系统</h4>
+                    <ul>
+                        <li>Windows 10 / 11</li>
+                        <li>macOS 10.14+</li>
+                        <li>Android 8.0+</li>
+                        <li>iOS 14.0+</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 火狐下载指南. All Rights Reserved. 本站非 Mozilla 官方网站，仅供资源整合与介绍使用。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项目
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项目状态
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
