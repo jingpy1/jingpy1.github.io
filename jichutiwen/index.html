@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础体温低 - 科学解读、健康管理与调理指南</title>
+    <meta name="description" content="本站提供关于基础体温低的全面解读，包括低体温的生理成因、对女性备孕及健康的潜在影响、科学的测量方法以及生活与饮食调理建议。">
+    <meta name="keywords" content="基础体温低, 体温过低, 女性基础体温, 备孕体温, 体质虚寒, 身体调理">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --primary-dark: #357abd;
+            --secondary-color: #f5f7fa;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --bg-body: #ffffff;
+            --bg-card: #ffffff;
+            --border-color: #e1e4e8;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Header & Nav */
+        header {
+            background: #fff;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 24px;
+            color: var(--primary-dark);
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 14px rgba(74, 144, 226, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Cards Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+            border-color: var(--primary-color);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: #eef6ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Chart Section */
+        .chart-container {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+            margin-top: 40px;
+        }
+
+        .chart-placeholder {
+            width: 100%;
+            height: 350px;
+            background-color: #fafafa;
+            border: 2px dashed #e1e4e8;
+            border-radius: var(--radius-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+
+        .chart-placeholder svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        /* List Style */
+        .info-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: var(--secondary-color);
+            border-radius: var(--radius-md);
+        }
+
+        .info-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .info-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .info-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            display: none;
+            padding-top: 10px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #999;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg>
+                基础体温管家
+            </div>
+            <nav class="nav-links">
+                <a href="#causes">成因解析</a>
+                <a href="#impact">健康影响</a>
+                <a href="#method">测量指南</a>
+                <a href="#adjust">调理建议</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>关注基础体温低<br>守护身体健康的温度</h1>
+                <p>基础体温过低可能预示着代谢减缓、免疫力下降或内分泌调节异常。了解数值背后的含义，掌握科学的自测与调理方法，为您的健康生活提供数据支持。</p>
+                <a href="#method" class="btn btn-primary">开始科学测量</a>
+            </div>
+        </section>
+
+        <!-- Core Causes Section -->
+        <section id="causes" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">为什么基础体温会偏低？</h2>
+                    <p class="section-desc">基础体温受多种生理因素影响，了解成因有助于对症下药。</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                        </div>
+                        <h3 class="card-title">体质虚寒</h3>
+                        <p class="card-text">中医认为“阳虚则寒”，体质偏寒的人体内阳气不足，无法维持正常的产热能力，导致体温长期偏低。</p>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 5.68 1.33 10.27 4 13l8 8 8-8c2.67-2.73 2.54-7.32.42-8.42z"></path></svg>
+                        </div>
+                        <h3 class="card-title">甲状腺功能减退</h3>
+                        <p class="card-text">甲状腺是调节代谢的“发动机”，甲状腺激素分泌不足会显著降低身体的基础代谢率，引起怕冷、低体温。</p>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        </div>
+                        <h3 class="card-title">营养摄入不足</h3>
+                        <p class="card-text">蛋白质、铁、锌等造血原料的缺乏，以及碳水化合物摄入不足，都会导致产热能量来源匮乏。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section id="impact" class="section" style="background-color: var(--secondary-color);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">基础体温低的潜在影响</h2>
+                    <p class="section-desc">长期的基础体温过低不仅仅是“怕冷”，它可能对全身机能产生连锁反应。</p>
+                </div>
+                <div class="grid-3">
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-number">01</div>
+                            <div class="info-content">
+                                <h3>影响女性生理周期</h3>
+                                <p>对于女性而言，基础体温偏低往往与黄体功能不足有关，可能导致月经量少、经期延长或排卵异常。</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-number">02</div>
+                            <div class="info-content">
+                                <h3>降低免疫力</h3>
+                                <p>体温每下降1℃，人体的免疫功能就会下降约30%。低体温人群更容易感冒、感染病毒。</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-number">03</div>
+                            <div class="info-content">
+                                <h3>血液循环不畅</h3>
+                                <p>低温会使血管收缩，血液流速变慢，可能导致手脚冰凉、肩颈僵硬，甚至增加心血管负担。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card chart-container">
+                        <h3 class="card-title">体温与代谢关系示意图</h3>
+                        <p class="card-text" style="margin-bottom: 20px;">了解正常体温范围与低体温的区别：</p>
+                        <div class="chart-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg>
+                            <p>正常腋下体温范围：36.0℃ - 37.0℃</p>
+                            <p style="margin-top: 10px; font-size: 0.9rem;">低体温警戒线：低于 36.0℃</p>
+                        </div>
+                    </div>
+
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-number">04</div>
+                            <div class="info-content">
+                                <h3>影响备孕成功率</h3>
+                                <p>基础体温曲线平直或偏低，往往提示黄体生成不足，这会增加受孕难度或导致早期流产风险。</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-number">05</div>
+                            <div class="info-content">
+                                <h3>精神状态不佳</h3>
+                                <p>低体温容易引起大脑供血不足，导致注意力不集中、嗜睡、乏力及情绪低落。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Measurement Guide -->
+        <section id="method" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">如何正确测量基础体温？</h2>
+                    <p class="section-desc">测量基础体温需要坚持、准确和规范，才能获得有参考价值的数据。</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card">
+                        <h3 class="card-title">1. 测量时间</h3>
+                        <p class="card-text">必须在清晨醒来后，<strong>未进行任何活动</strong>（包括说话、翻身、起床）时立即测量。通常建议在醒来后5分钟内完成。</p>
+                    </article>
+                    <article class="card">
+                        <h3 class="card-title">2. 测量部位</h3>
+                        <p class="card-text">口腔测量最为普遍且准确，建议将体温计水银头置于舌头下，闭口静待3-5分钟。也可选择腋下测量，但需注意腋下有汗液会降低准确性。</p>
+                    </article>
+                    <article class="card">
+                        <h3 class="card-title">3. 记录与观察</h3>
+                        <p class="card-text">建议使用专门的基础体温记录表或APP，每天记录。观察连续3个月经周期的体温曲线变化，以判断排卵期及激素水平。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Adjustment Advice -->
+        <section id="adjust" class="section" style="background-color: var(--secondary-color);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">生活与饮食调理建议</h2>
+                    <p class="section-desc">通过科学的生活方式调整，可以有效提升基础体温，改善体质。</p>
+                </div>
+                <div class="grid-3">
+                    <div class="card">
+                        <h3 class="card-title">温补饮食</h3>
+                        <p class="card-text">多吃生姜、红枣、桂圆、羊肉、牛肉等温热性食物。避免生冷、冰镇饮料和寒凉蔬果，从内而外提升体温。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">适度运动</h3>
+                        <p class="card-text">进行有氧运动（如快走、慢跑、瑜伽）可以加速血液循环，提高新陈代谢。运动后身体产热增加，有助于提升基础体温。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">充足睡眠</h3>
+                        <p class="card-text">保证每天7-8小时的高质量睡眠，避免熬夜。夜间是身体修复和体温调节的关键时期，睡眠不足会扰乱生物钟。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section">
+            <div class="container" style="max-width: 800px;">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题解答</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">基础体温一直低于36度算正常吗？</div>
+                    <div class="faq-answer">成年人的腋下基础体温通常在36.0℃-37.0℃之间。如果长期低于36.0℃，且伴有怕冷、乏力等症状，则属于低体温范畴，建议咨询医生。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">体温低会影响怀孕吗？</div>
+                    <div class="faq-answer">体温偏低可能与黄体功能不足有关，这确实可能影响受孕。通过监测体温曲线和补充黄体酮，可以在医生指导下改善。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">喝热水真的能升高体温吗？</div>
+                    <div class="faq-answer">喝热水可以暂时提升口腔或胃部的温度，并促进血液循环，产生短暂的热感，但并不能从根本上改变身体的基础代谢水平。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>基础体温管家</h4>
+                    <p style="color: #999; font-size: 0.9rem;">致力于提供科学、准确的基础体温健康知识与调理方案，助您掌握身体密码。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#causes">成因解析</a></li>
+                        <li><a href="#impact">健康影响</a></li>
+                        <li><a href="#method">测量指南</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>健康提示</h4>
+                    <ul>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">联系支持</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 基础体温管家. All rights reserved. 本站内容仅供参考，不作为医疗诊断依据。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
